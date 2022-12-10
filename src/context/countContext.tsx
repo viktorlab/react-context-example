@@ -1,8 +1,8 @@
-import { createContext, useContext, useReducer } from 'react';
+import { createContext, ReactNode, useReducer } from 'react';
 import { countReducer } from './reducers';
 import type { CountContextType, State } from './types';
 
-type CountProviderProps = { children: React.ReactNode };
+type CountProviderProps = { children: ReactNode };
 
 export const CountContext = createContext<CountContextType | undefined>(undefined);
 
