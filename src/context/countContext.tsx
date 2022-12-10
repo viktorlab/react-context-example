@@ -1,13 +1,15 @@
 import { createContext, useContext, useReducer } from 'react';
 import { countReducer } from './reducers';
-import type { CountContextType } from './types';
+import type { CountContextType, State } from './types';
 
 type CountProviderProps = { children: React.ReactNode };
 
 export const CountContext = createContext<CountContextType | undefined>(undefined);
 
 export function CountProvider({ children }: CountProviderProps) {
-  const [state, dispatch] = useReducer(countReducer, { count: 0 });
+  const initialState: State = { count: 0 };
+
+  const [state, dispatch] = useReducer(countReducer, initialState);
 
   const value = { state, dispatch };
 
